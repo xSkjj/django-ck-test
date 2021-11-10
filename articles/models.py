@@ -5,11 +5,11 @@ from django_ckeditor_5.fields import CKEditor5Field
 
 class Article(models.Model):
     """ Articles for blog. """
-    text1 = CKEditor5Field("Text1", config_name='default', null=True, blank=True)
-    text2 = CKEditor5Field("Text2", config_name='default', null=True, blank=True)
-    text3 = CKEditor5Field("Text3", config_name='default', null=True, blank=True)
-    text4 = CKEditor5Field("Text4", config_name='default', null=True, blank=True)
-    text5 = CKEditor5Field("Text5", config_name='default', null=True, blank=True)
+    text1 = CKEditor5Field("Text1", config_name='simple', null=True, blank=True)
+    text2 = CKEditor5Field("Text2", config_name='simple', null=True, blank=True)
+    text3 = CKEditor5Field("Text3", config_name='simple', null=True, blank=True)
+    text4 = CKEditor5Field("Text4", config_name='simple', null=True, blank=True)
+    text5 = CKEditor5Field("Text5", config_name='simple', null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Articles"
