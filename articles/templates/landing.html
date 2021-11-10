@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+    <form action="/" method="post">
+        {% csrf_token %}
+        {{ form.media }}
+        {{ form.as_p }}
+        <input type="submit" name="Submit">
+    </form>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+                let toolbars = document.querySelectorAll("div.ck-editor__top");
+                let editors = document.querySelectorAll("div.ck-content");
+
+                if (toolbars.length !== editors.length) console.error("Ck-editors might not work correctly\n" +
+                    "Please consider reporting this, if you notice anything");
+
+                // hide all editor toolbars by default
+                for (let i = 0; i < toolbars.length; i++) {
+                    toolbars[i].setAttribute("hidden", "");
+                }
+
+                for (let i = 0; i < editors.length; i++) {
+                    editors[i].addEventListener("focusout", () => {
+                        toolbars[i].setAttribute("hidden", "");
+                    });
+                    editors[i].addEventListener("focus", () => {
+                        toolbars[i].removeAttribute("hidden");
+                    });
+                }
+            }
+        )
+    </script>
+{% endblock %}

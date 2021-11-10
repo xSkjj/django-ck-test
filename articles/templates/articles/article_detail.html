@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+    <div style="display:flex; flex-direction: column;">
+        <div>
+            {% autoescape off %}
+                {{ object.text1 }}
+                {{ object.text2 }}
+                {{ object.text3 }}
+                {{ object.text4 }}
+                {{ object.text5 }}
+            {% endautoescape %}
+        </div>
+    </div>
+{% endblock %}
